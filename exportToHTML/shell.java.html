@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>shell.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(0,0,255); }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+shell.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">import </span><span class="s1">java.io.BufferedReader; 
+</span><span class="s0">import </span><span class="s1">java.io.IOException; 
+</span><span class="s0">import </span><span class="s1">java.io.InputStreamReader; 
+ 
+</span><span class="s2">/* 
+ * Created by Devashish Katoriya on 31-12-2016. 
+ */</span><span class="s1"> 
+ 
+</span><span class="s0">public class </span><span class="s1">shell { 
+    </span><span class="s0">public static void </span><span class="s1">main(String []args) </span><span class="s0">throws </span><span class="s1">IOException 
+    { 
+        </span><span class="s0">int </span><span class="s1">i,n,temp,swapped,gap,count; 
+        </span><span class="s0">int </span><span class="s1">[]a = </span><span class="s0">new int</span><span class="s1">[</span><span class="s3">200</span><span class="s1">]; 
+ 
+        InputStreamReader ir = </span><span class="s0">new </span><span class="s1">InputStreamReader(System.in); 
+        BufferedReader br = </span><span class="s0">new </span><span class="s1">BufferedReader(ir); 
+ 
+        System.out.print(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Enter how many elements ? &quot;</span><span class="s1">); 
+        n = Integer.parseInt(br.readLine()); 
+ 
+        System.out.print(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Enter the array elements :- </span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s1">);       </span><span class="s2">//Input from User</span><span class="s1"> 
+        </span><span class="s0">for</span><span class="s1">(i=</span><span class="s3">0</span><span class="s1">;i&lt;n;i++) 
+        { 
+            a[i] = Integer.parseInt(br.readLine()); 
+        } 
+ 
+        System.out.print(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">The array is :- </span><span class="s0">\n\n</span><span class="s4">&quot;</span><span class="s1">); 
+        </span><span class="s0">for</span><span class="s1">(i=</span><span class="s3">0</span><span class="s1">;i&lt;n;i++) 
+        { 
+            System.out.print(</span><span class="s4">&quot;</span><span class="s0">\t</span><span class="s4">&quot;</span><span class="s1">+a[i]); 
+        } 
+ 
+        System.out.print(</span><span class="s4">&quot;</span><span class="s0">\n\n</span><span class="s4">&quot;</span><span class="s1">); 
+        gap = n/</span><span class="s3">2</span><span class="s1">; 
+        count = </span><span class="s3">1</span><span class="s1">; 
+        </span><span class="s0">do                                                          </span><span class="s2">//Shell Sort</span><span class="s1"> 
+        { 
+            </span><span class="s0">do</span><span class="s1"> 
+            { 
+                swapped = </span><span class="s3">0</span><span class="s1">; 
+                </span><span class="s0">for</span><span class="s1">(i=</span><span class="s3">0</span><span class="s1">;i&lt;n-gap;i++) 
+                { 
+                    </span><span class="s0">if</span><span class="s1">(a[i]&gt;a[i+gap]) 
+                    { 
+                        temp = a[i]; 
+                        a[i] = a[i+gap]; 
+                        a[i+gap] = temp; 
+                        swapped = </span><span class="s3">1</span><span class="s1">; 
+                    } 
+                } 
+            }</span><span class="s0">while</span><span class="s1">(swapped == </span><span class="s3">1</span><span class="s1">); 
+            System.out.print(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Iteration &quot;</span><span class="s1">+count+</span><span class="s4">&quot; : &quot;</span><span class="s1">); 
+            </span><span class="s0">for</span><span class="s1">(i=</span><span class="s3">0</span><span class="s1">;i&lt;n;i++) 
+            { 
+                System.out.print(</span><span class="s4">&quot;</span><span class="s0">\t</span><span class="s4">&quot;</span><span class="s1">+a[i]); 
+            } 
+            count++; 
+            gap = gap/</span><span class="s3">2</span><span class="s1">; 
+        }</span><span class="s0">while</span><span class="s1">(gap&gt;</span><span class="s3">0</span><span class="s1">); 
+ 
+        System.out.print(</span><span class="s4">&quot;</span><span class="s0">\n\n</span><span class="s4">Array after Shell Sort :- </span><span class="s0">\n\n</span><span class="s4">&quot;</span><span class="s1">);     </span><span class="s2">//Display Array</span><span class="s1"> 
+        </span><span class="s0">for</span><span class="s1">(i=</span><span class="s3">0</span><span class="s1">;i&lt;n;i++) 
+        { 
+            System.out.print(</span><span class="s4">&quot;</span><span class="s0">\t</span><span class="s4">&quot;</span><span class="s1">+a[i]); 
+        } 
+ 
+        System.out.print(</span><span class="s4">&quot;</span><span class="s0">\n\n</span><span class="s4">&quot;</span><span class="s1">); 
+    } 
+} 
+</span></pre>
+</body>
+</html>
