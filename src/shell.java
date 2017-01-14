@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 
 /*
  * Created by Devashish Katoriya on 31-12-2016.
+ * Program to Illustrate the working of Shell sort using BufferedReader in JAVA
  */
 
 public class shell {
